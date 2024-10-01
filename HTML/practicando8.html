@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formularios</title>
+  </head>
+  <body>
+    <!-- Acción que llamará al formulario... (procesación de data, más adelante en JavaScript) -->
+    <!-- Para crear una relación entre label e input el campo "for" del label debe contener el nombre de la "id" del input-->
+    <!--- No olvidar el atributo name -->
+    <!-- El atributo "Required" es para que sea obligatorio ese input -->
+    <form action="">
+      <!-- Para agrupar unos campos... -->
+      <fieldset>
+        <legend>Información del usuario</legend>
+        <!-- Para trabajar con colores -->
+         <label for="color">Color</label>
+         <input type="color" name="color" id="color">
+        <!-- Para trabajar con email -->
+         <label for="email">Email:</label>
+         <input type="email" name="email" id="email" required>
+         <!--Para barra de rangos -->
+         <label type="range">Rango</label>
+         <input type="range" name="range" id="range" min="5" max="50" required>
+         <!-- Para una fecha -->
+          <label for="date">Date</label>
+          <input type="date" name="date" id="date">
+         <!-- Para contraseñas -->
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password">
+         <!-- Para enviar datos -->
+         <label for="files">Archivos</label>
+         <input type="file" name="files" id="files">
+         <!-- Proporcionan nombre y descripción de la data que estamos recibiendo -->
+        <label for="nombre">Nombre completo:</label>
+        <!-- Hace referencia a los campos para ingresar datos -->
+        <input type="text" id="nombre" />
+        <!-- No son deseleccionables -->
+        <input type="radio" name="tecnologias" id="html" />
+        <label for="html">HTML</label>
+        <input type="radio" name="tecnologias" id="JS" />
+        <label for="JS">JS</label>
+        <input list="midatalist">
+        <datalist id="midatalist">
+          <option value="valor1"></option>
+          <option value="valor2"></option>
+          <option value="valor3"></option>
+        </datalist>
+      </fieldset>
+
+      <fieldset>
+        <legend>Información adicional</legend>
+        <!-- Si son deseleccionables -->
+      <input type="checkbox" name="dev" id="dev" value="dev" />
+      <label for="dev">desarrolador</label>
+      <input type="checkbox" name="design" id="design" value="design" />
+      <label for="design">diseñador</label>
+      <!-- Otra forma para múltiples opciones -->
+      <select name="select" id="select" size="3" multiple>
+        <option value="valor1" selected>Valor 1</option>
+        <option value="valor2">Valor 2</option>
+        <option value="valor3">Valor 3</option>
+      </select>
+      <!-- Simplemente un área donde el usuario puede ingresar texto -->
+      <!-- Con el atributo style="resize:none" el área ya no es ajustable-->
+      <textarea name="textarea" id="area" cols="30" rows="10"></textarea>
+      </fieldset>
+      
+      <!-- Un simple botón-->
+      <button type="button">Boton</bu tton>
+      
+      <!-- Botón que envía el formulario (el action) -->
+      <input type="submit" value="Enviar" />
+    </form>
+  </body>
+</html>
