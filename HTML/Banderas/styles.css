@@ -1,0 +1,157 @@
+.lista-banderas {
+    display: grid;
+    /* border: 2px solid black; */
+    /* background-color: lightsalmon; */
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 170px;
+    gap: 15px;
+    margin: 50px;
+}
+
+.bandera {
+    background-color: white;
+    border: 2px solid black;
+    position: relative; /* Añadido para posicionamiento absoluto del círculo */
+    height: 170px
+}
+
+/* Bandera de Alemania */
+
+.lista-banderas .bandera:nth-child(1)  {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+/* Si quisieramos bordes en las franjas: */
+
+/* .lista-banderas .bandera:nth-child(1) .franja {
+    border: 2px solid black;
+} */
+
+.lista-banderas .bandera:nth-child(1) .franja:nth-child(1) {
+    background-color: black;
+}
+
+.lista-banderas .bandera:nth-child(1) .franja:nth-child(2) {
+    background-color: red;
+}
+
+.lista-banderas .bandera:nth-child(1) .franja:nth-child(3) {
+    background-color: yellow;
+}
+
+/* Bandera de Japón */
+
+.lista-banderas .bandera:nth-child(2) .circulo {
+    position: absolute;
+    top: 50%; /* Centrado verticalmente */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste para el centrado absoluto */
+    width: 75px; /* Tamaño del círculo */
+    height: 75px; /* Tamaño del círculo */
+    background-color: red;
+    border-radius: 50%; /* Hace que el div sea un círculo */
+}
+
+/* Bandera de Colombia */
+
+.lista-banderas .bandera:nth-child(3) {
+    display: grid;
+    grid-template-rows: 2fr 1fr 1fr;   
+}
+
+.lista-banderas .bandera:nth-child(3) .franja:nth-child(1) {
+    background-color: yellow;
+}
+
+.lista-banderas .bandera:nth-child(3) .franja:nth-child(2) {
+    background-color: blue;
+}
+
+.lista-banderas .bandera:nth-child(3) .franja:nth-child(3) {
+    background-color: red;
+}
+
+/* Bandera de Cánada */
+
+.lista-banderas .bandera:nth-child(4) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.lista-banderas .bandera:nth-child(4) .red {
+    background-color: red;
+}
+
+.lista-banderas .bandera:nth-child(4) .franja:nth-child(2) .hoja {
+    position: absolute;
+    top: 50%; /* Centrado verticalmente */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste para el centrado absoluto */
+    font-size: 70px;
+}
+
+/* Bandera de Noruega */ 
+
+.bandera:nth-child(5) {
+    display: grid;
+    grid-template-columns: 2fr 1fr 5fr;  
+    grid-template-rows: 2fr 1fr 2fr;
+
+}
+/* Para probar */
+/*.bandera:nth-child(5) .franja {
+    border: 2px solid black;
+}*/
+
+.bandera:nth-child(5) .red {
+  background-color: red;  
+} 
+
+.bandera:nth-child(5) .blue {
+    background-color: blue;    
+} 
+
+.bandera:nth-child(5) .borde-horizontal {
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.bandera:nth-child(5) .borde-vertical {
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+}
+
+/* Bandera de Venezuela */
+
+.bandera:nth-child(6) {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.lista-banderas .bandera:nth-child(6) .franja:nth-child(1) {
+    background-color: yellow;
+}
+
+.lista-banderas .bandera:nth-child(6) .franja:nth-child(2) {
+    background-color: blue;
+}
+
+.lista-banderas .bandera:nth-child(6) .franja:nth-child(2) .estrella{
+    position: absolute;
+    width: 15px; /* Tamaño del círculo */
+    height: 15px; /* Tamaño del círculo */
+}
+
+.est-1 { top: 55%; left: 22%; }
+.est-2 { top: 50%; left: 30%; }
+.est-3 { top: 45%; left: 38%; }
+.est-4 { top: 40%; left: 46%; }
+.est-5 { top: 40%; left: 54%; }
+.est-6 { top: 45%; left: 62%; }
+.est-7 { top: 50%; left: 70%; }
+.est-8 { top: 55%; left: 78%; }
+
+.lista-banderas .bandera:nth-child(6) .franja:nth-child(3) {
+    background-color: red;
+}
