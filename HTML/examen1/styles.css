@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    position: relative;
+}
+
+header .logo {
+    position: absolute;
+    left: 5%;
+    top: 10%;
+}
+
+header .navegacion {
+    position: absolute;
+    right: 10%;
+    top: 10%;
+}
+
+header .usuario {
+    position: absolute;
+    right: 5%;
+    top: 40%;
+    color: black;
+}
+
+header .cabecera {
+    height: 200px;
+    border: 2px solid black;
+    top: 50%;
+}
