@@ -1,0 +1,56 @@
+Principal Proc ; Direccionamiento indirecto.
+    MOV AX, @data
+    MOV DS, AX
+    MOV AL, [3]+1; AL=15                          
+    MOV AL, [var1]; AL= 0ah     
+    MOV AL, [arreglo1]; AL= 1     
+    
+    ; Direccionamiento indirecto indexado (Se refiere a la variable de manera exclusiva)
+    MOV SI,5
+    MOV AL, arreglo1[SI]; AL= 0Ch   
+                    
+    ; Me da la primera posicion de la variable                
+    LEA DI, arreglo1     
+    MOV AL, [DI]
+    
+    ; Direccionamiento por base (Similar al anterior), considera todos los elementos
+    ; me posiciono en una variable con SI, y me muevo con BX
+    MOV BX, 2
+    MOV AL, [BX]; AL=05        
+    
+    ; Direccionamiento indexado por base
+    MOV BX, 1
+    MOV SI, 1
+    MOV AL, [BX+SI]; desp=2; AL= 05
+
+    MOV AH,4CH; Para terminar el programa
+    INT 21H; Interrupcion de salida
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.model small        
+.stack 100h
+.data
+    arreglo2 DB 1, 2, 3
+    resultado DW 0                                                                                 
+                                          
+.code     
+main:          
+    MOV AX, @data
+    MOV DS, AX
+    
+    XOR AX, AX ; Inicializar en 0
+    MOV CX, 10 ; Numero de elementos en la matriz
+    LEA SI, arreglo2 ; cargar direccion base de la matriz
+    
+suma_loop:
+    MOV BL, [SI]
+    ADD AX, BX
+    INC SI
+    LOOP suma_loop
+    
+    MOV resultado, AX          
+    MOV AH,4CH; Para terminar el programa
+    INT 21H; Interrupcion de salida  
+end main    
+END
