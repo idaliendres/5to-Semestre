@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="pending-container">
+        <h1 class="pending-tittle">to-do list</h1>
+        <div class="bar-container">
+            <input type="text" id="input" placeholder="press enter to add">
+            <!-- Apertura de la lista -->
+            <ul></ul>
+        </div>
+        <h4 class="pending-clear">Clear list</h4>
+    </div>
+
+    <script src="jquery-3.7.1.min.js"></script>
+
+    <!-- <script>
+        $(document).ready(function(){
+            alert("Hola Mundo");
+        });
+    </script> -->
+
+    <script>
+        $('#input').change(function() {
+            var input= $(this).val();
+            $('ul').append('<li> <input type="checkbox" name="" id=""> <label for="checkbox">' + input + '</label>');
+            $(this).val('');
+        });
+
+        $('.pending-clear').click(function() { $('ul').empty(); });
+    </script>
+
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
