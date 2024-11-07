@@ -1,0 +1,66 @@
+.model small
+.stack 64
+.data  
+   N DB ? ; Número ingresado por el usuario
+
+.code             
+; Recibimos y transformamos el dato ingresado del usuario 
+    mov ah, 01h
+    int 21h
+    sub al, 30h 
+    mov N, al ; Almacena el número ingresado en N
+    mov cl, 1 ; Contador auxiliar
+
+operaciones:
+    ; Asignar operaciones
+    mov al, N ; Almacena N en AL
+    mul cl ; Multiplica AL por CL
+    aam ; Ajusta el resultado en formato BCD
+    mov bx, ax ; Almacena el resultado en BX
+    
+    ; Imprimir salto de línea
+    mov ah, 02h
+    mov dl, 0Ah
+    int 21h
+
+    ; Imprimir el número ingresado
+    mov ah, 02h
+    mov dl, cl
+    add dl, 30h
+    int 21h        
+    
+    ; Imprimir símbolo "x"
+    mov ah, 02h
+    mov dl, 'x'
+    int 21h             
+    
+    ; Imprimir el número ingresado
+    mov ah, 02h
+    mov dl, N
+    add dl, 30h
+    int 21h
+    
+    ; Imprimir símbolo "="
+    mov ah, 02h
+    mov dl, '='
+    int 21h
+    
+    ; Imprimir resultado
+    mov ah, 02h
+    mov dl, bh
+    add dl, 30h
+    int 21h
+
+    mov dl, bl
+    add dl, 30h
+    int 21h
+    
+    inc cl ; Incrementa el contador CL
+    cmp cl, 11 ; Compara CL con 11
+    jne operaciones ; Si CL es menor que 11, repite
+    
+    ; Terminar el programa
+    mov ah, 4Ch
+    int 21h
+
+end
