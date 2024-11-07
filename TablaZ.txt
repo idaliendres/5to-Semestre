@@ -1,0 +1,80 @@
+.model small
+
+.data
+   num db 0         
+   msj0 DB 10,13, " ",'$'
+   msj1 DB " X ",'$'    
+   msj2 DB " = ",'$'
+   
+   
+.code
+    ;direccionamiento del segmento de datos
+    mov ax, @data
+    mov ds,ax  
+     
+    ;entrada de datos
+    mov ah, 01h
+    int 21h
+    sub al, 30h
+    mov num, al 
+     
+    ;inicia el contador en 1
+    mov cl, 1h      
+    
+  tabla: ;para simular un ciclo de repeticion
+    
+    mov al, num  ;numero ingresado
+    mul cl ;  multiplica numero ingresado por el contador
+    aam   ;Dividir entre 10 para separar el numero en el registro AX
+    
+    ;mov ax,0
+    ;mov al,suma
+    ;div v     ;Dividir entre 10 para separar el numero en el registro AX
+    ;ADD ax,3030h ;Resta 30h al registro AX, para llevarlo a hexadecimal
+    ;MOV r[0],AL  ;Mueve parte baja de AX al arreglo para mostrar el resultado de la Suma 
+    ;MOV r[1],AH  ;Mueve parte alta de AX al arreglo para mostrar el resultado de la Suma 
+    
+    mov bx, ax  
+    add bx,3030h  ;suma 30h al registro AX, para llevarlo a hexadecimal
+    
+    
+    mov ah, 09
+    lea dx, msj0   ;lectura de una direccion efectiva
+    int 21h  
+    
+    mov dl,num     ;para mostrar el numero evaluado
+    add dl,30h  
+    mov ah, 02
+    int 21h  
+    
+    mov ah, 09
+    lea dx, msj1   ;muestra la X
+    int 21h  
+    
+    mov dl,cl      ;muestra el contador
+    add dl,30h  
+    mov ah, 02
+    int 21h  
+    
+    mov ah, 09
+    lea dx, msj2   ;muestra la =
+    int 21h  
+    
+    mov dl, bh
+    mov ah,02h  ;Salida de caracteres
+    int 21h  
+    
+    mov dl, bl
+    mov ah,02h  ;Salida de caracteres
+    int 21h  
+       
+        
+    inc cx
+    cmp cx,11  
+    ja salir   ;Salto corto si el primer operando cx esta por encima del segundo 11 -cmp
+    jb tabla   ;Salto corto si el primer operando cx esta por debajo del segundo operando 11 -cmp
+    
+  salir:
+    mov ah,4ch
+    int 21h
+  end 
